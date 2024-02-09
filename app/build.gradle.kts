@@ -3,7 +3,7 @@ plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.kotlinAndroid)
 
-    id("com.google.gms.google-services")
+    alias(libs.plugins.gmsGoogleServices)
 }
 
 android {
@@ -70,5 +70,5 @@ dependencies {
     debugImplementation(libs.ui.tooling)
     debugImplementation(libs.ui.test.manifest)
 
-    implementation(platform("com.google.firebase:firebase-bom:32.7.1"))
+    implementation(platform(libs.firebase.bom))
 }
