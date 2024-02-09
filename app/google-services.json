@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "127149645857",
+    "project_id": "ourbudget-1b3f0",
+    "storage_bucket": "ourbudget-1b3f0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:127149645857:android:8b600d532711f52c9cc360",
+        "android_client_info": {
+          "package_name": "ru.raz0ne.ourbudget"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDVrl8Lx3yYnsmkG6f4qZ4gK_4ZI3kq3K4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
