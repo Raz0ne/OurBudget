@@ -12,7 +12,20 @@
           "package_name": "ru.raz0ne.ourbudget"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "127149645857-flbeiedh644ofe6ii1i0qdhmi2pjcc5u.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ru.raz0ne.ourbudget",
+            "certificate_hash": "da8675fa548935a18bc1ef90525350831fd2ff59"
+          }
+        },
+        {
+          "client_id": "127149645857-j04css74hr7nim6eabhij32mona55g86.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyDVrl8Lx3yYnsmkG6f4qZ4gK_4ZI3kq3K4"
@@ -20,7 +33,12 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "127149645857-j04css74hr7nim6eabhij32mona55g86.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }
