@@ -1,4 +1,4 @@
-package ru.raz0ne.ourbudget.presentation
+package ru.raz0ne.ourbudget.presentation.screens
 
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -13,8 +13,8 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import kotlinx.coroutines.launch
 import ru.raz0ne.ourbudget.R
-import ru.raz0ne.ourbudget.ui.navigation.AppBar
-import ru.raz0ne.ourbudget.ui.navigation.Drawer
+import ru.raz0ne.ourbudget.presentation.navigation.AppBar
+import ru.raz0ne.ourbudget.presentation.navigation.Drawer
 
 @Composable
 fun HomeScreen() {
