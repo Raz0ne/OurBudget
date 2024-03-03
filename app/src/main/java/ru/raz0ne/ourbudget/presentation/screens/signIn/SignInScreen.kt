@@ -13,9 +13,9 @@ import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.GoogleAuthProvider
 
 @Composable
-fun SignInScreen(viewModel: SignInScreenViewModel = viewModel()) {
+fun SignInScreen(/*viewModel: SignInScreenViewModel = viewModel()*/) {
 
-    val state by viewModel.loadingState.collectAsState()
+    /*val state by viewModel.loadingState.collectAsState()
 
     val launcher = rememberLauncherForActivityResult(
         contract = ActivityResultContracts.StartActivityForResult()) {
@@ -27,5 +27,5 @@ fun SignInScreen(viewModel: SignInScreenViewModel = viewModel()) {
         } catch (e: ApiException) {
             Log.w("TAG", "Google sign in failed", e)
         }
-    }
+    }*/
 }

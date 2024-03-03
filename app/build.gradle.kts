@@ -71,10 +71,13 @@ dependencies {
     debugImplementation(libs.ui.tooling)
     debugImplementation(libs.ui.test.manifest)
 
-    implementation(platform(libs.firebase.bom))
-    implementation(libs.firebase.auth)
+    //implementation(platform(libs.firebase.bom))
+    //implementation(libs.firebase.auth)
     implementation(libs.play.services.auth)
-    implementation(libs.firebase.common.ktx)
+    //implementation(libs.firebase.common.ktx)
 
     implementation(libs.androidx.navigation.compose)
+
+    implementation(libs.androidx.runtime.livedata)
+    implementation(kotlin("reflect"))
 }

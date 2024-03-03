@@ -1,6 +1,5 @@
 package ru.raz0ne.ourbudget.presentation.navigation
 
-import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
@@ -15,12 +14,8 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ExitToApp
-import androidx.compose.material.icons.filled.MailOutline
-import androidx.compose.material.icons.filled.Settings
-import androidx.compose.material3.Divider
 import androidx.compose.material3.DrawerState
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.ModalDrawerSheet
 import androidx.compose.material3.ModalNavigationDrawer
@@ -41,6 +36,7 @@ import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 import ru.raz0ne.ourbudget.R
@@ -48,32 +44,12 @@ import ru.raz0ne.ourbudget.ui.theme.Orange
 
 @Composable
 fun Drawer(
+    navController: NavController,
     drawerState: DrawerState,
     scope: CoroutineScope,
     content: @Composable () -> Unit
 ) {
-    val items = listOf(
-        DrawerItem(
-            id = "tables",
-            title = "Таблицы",
-            icon = ImageVector.vectorResource(id = R.drawable.baseline_wallet_24),
-        ),
-        DrawerItem(
-            id = "settings",
-            title = "Настройки",
-            icon = Icons.Default.Settings,
-        ),
-        DrawerItem(
-            id = "feedback",
-            title = "Связь с разработчиком",
-            icon = Icons.Default.MailOutline,
-        ),
-        DrawerItem(
-            id = "logout",
-            title = "Выйти",
-            icon = Icons.AutoMirrored.Filled.ExitToApp,
-        )
-    )
+    val items = NavigationItem.items.filter { it.isDrawerVisible }
 
     val selectedItem = remember {
         mutableStateOf(items[0])
@@ -132,24 +108,28 @@ fun Drawer(
                 items.dropLast(1).forEach{ item ->
                     NavigationDrawerItem(
                         label = {
-                            Text(text = item.title)
+                            Text(text = item.title!!)
                         },
                         selected = selectedItem.value == item,
                         icon = {
                            Icon(
-                               imageVector = item.icon,
+                               imageVector = item.icon
+                                   ?: ImageVector.vectorResource(item.iconRes!!),
                                contentDescription = item.title
                            )
                         },
                         onClick = {
                             scope.launch {
+                                navController.navigate(item.route)
+
                                 selectedItem.value = item
                                 drawerState.close()
                             }
                         }
                     )
                 }
-                Divider(
+                HorizontalDivider(
+                    modifier = Modifier.padding(0.dp, 2.dp),
                     thickness = 1.dp,
                     color = Color.LightGray
                 )
@@ -157,14 +137,14 @@ fun Drawer(
                     NavigationDrawerItem(
                         label = {
                             Text(
-                                text = item.title,
+                                text = item.title!!,
                                 color = Color.Red
                             )
                         },
                         selected = selectedItem.value == item,
                         icon = {
                             Icon(
-                                imageVector = item.icon,
+                                imageVector = item.icon!!,
                                 contentDescription = item.title,
                                 tint = Color.Red
                             )

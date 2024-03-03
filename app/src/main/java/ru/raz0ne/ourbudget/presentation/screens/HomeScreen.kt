@@ -19,30 +19,13 @@ import ru.raz0ne.ourbudget.presentation.navigation.Drawer
 @Composable
 fun HomeScreen() {
 
-    val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
-    val coroutineScope = rememberCoroutineScope()
+    Scaffold(
 
-    Drawer(
-        drawerState = drawerState,
-        scope = coroutineScope
-    ) {
-        Scaffold(
-            topBar = {
-                AppBar(
-                    appBarTitle = stringResource(id = R.string.app_name),
-                    onNavigationIconClick = {
-                        coroutineScope.launch {
-                            drawerState.open()
-                        }
-                    }
-                )
-            },
-        ) { contentPadding ->
-            Surface(
-                modifier = Modifier.fillMaxSize().padding(contentPadding)
-            ) {
+    ) { contentPadding ->
+        Surface(
+            modifier = Modifier.fillMaxSize().padding(contentPadding)
+        ) {
 
-            }
         }
     }
 }
